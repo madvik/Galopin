@@ -18,10 +18,15 @@
 				<?php if ($postlink){ ?> <a href="<?php the_permalink(); ?>" title="<?php _e('Read more','galopin'); ?>" class="post-permalink"><?php } ?>
 
 					<?php
-						if($sidebar)
-							the_post_thumbnail('galopin-post-thumbnail');
-						else
-							the_post_thumbnail('galopin-post-thumbnail-full');
+						if( galopin_is_masonry() ){
+							the_post_thumbnail('medium');
+						}
+						else {
+							if($sidebar)
+								the_post_thumbnail('galopin-post-thumbnail');
+							else
+								the_post_thumbnail('galopin-post-thumbnail-full');
+						}
 					?>
 					
 				<?php if ($postlink){ ?></a> <?php } ?>
